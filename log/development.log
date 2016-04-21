@@ -262,3 +262,288 @@ Processing by ProjectsController#home as HTML
   Rendered layouts/_messages.html.erb (0.2ms)
   Rendered layouts/_footer.html.erb (0.2ms)
 Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-20 18:17:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 433ms (Views: 423.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-20 18:17:38 -0700
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-04-20 18:17:42 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (24.9ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 94ms (Views: 93.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-04-20 18:18:02 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I0y9jnwBezklh9ivt4fsT+3cIpYlva/VmpaqQpbVUyLHu2HXGGXVosNIf7K0FwjXbnojB8Tu0h0uSceuMqGCHw==", "session"=>{"email"=>"jdoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jdoe@gmail.com"]]
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 211ms (Views: 80.9ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-04-20 18:18:11 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OrSpiZvwk2l28pq59QH7OgidgkKpd9Wd6Jf7G2N4K/zeQ3XQ/5Q98pA9PaT2kR+iizuD00gkqFVcSJb3xwz6wQ==", "session"=>{"email"=>"jdoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jdoe@gmail.com"]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 102ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-04-20 18:18:11 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[35mProject Load (0.3ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0  [["user_id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered projects/_projects.html.erb (16.8ms)
+  Rendered users/show.html.erb within layouts/application (24.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 100ms (Views: 79.4ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-04-20 18:18:20 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8CVDYPw4miyijeId495tUU2FdwEyeUzv+kLxMhP+d3IU0p85mFw0t0RCRQDgTonJziN2kNMqMSdOnZzet4qmTw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-20 18:18:20 -0700
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2016-04-20 18:18:21 -0700
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (17.7ms)
+  Rendered users/_form.html.erb (47.4ms)
+  Rendered users/new.html.erb within layouts/application (49.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 129ms (Views: 128.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-04-20 18:20:37 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gXaYzvULaw4EI9jqu39vzm+mdre6WHABWZZ6+eHpIIllgUSXkW/FleLsf/e474tW7AB3JlsLDcntSRcVRZ3xtA==", "user"=>{"username"=>"Elizabeth", "full_name"=>"Olsen", "email"=>"olsen@testingapp.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f068c858448 @tempfile=#<Tempfile:/tmp/RackMultipart20160420-4997-16j1tz1.jpg>, @original_filename="elizabeth-olsen1-550x338.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"elizabeth-olsen1-550x338.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Let's get started!"}
+Command :: file -b --mime '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-11upveg.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]'
+Command :: convert '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' -auto-orient -resize "600x600>" '/tmp/05cb990f6a71e04ca898d525f085cb0e20160420-4997-emdq5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]'
+Command :: convert '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' -auto-orient -resize "300x300>" '/tmp/05cb990f6a71e04ca898d525f085cb0e20160420-4997-1ybe6ly'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]'
+Command :: convert '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-xoafpk.jpg[0]' -auto-orient -resize "x150" -crop "150x150+47+0" +repage '/tmp/05cb990f6a71e04ca898d525f085cb0e20160420-4997-rj0yx'
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('Elizabeth') LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('olsen@testingapp.com') LIMIT 1
+Command :: file -b --mime '/tmp/a619e935275001c86a0d8005f8d36b5920160420-4997-opwt8m.jpg'
+  [1m[36mSQL (69.5ms)[0m  [1mINSERT INTO "users" ("username", "full_name", "email", "password_digest", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["username", "elizabeth"], ["full_name", "Olsen"], ["email", "olsen@testingapp.com"], ["password_digest", "$2a$10$gKpkHV/rR4fSXaiiNeeqEeckQVHZibEiSrcGHERLVJVndKe0QoeT6"], ["image_file_name", "elizabeth-olsen1-550x338.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 38643], ["image_updated_at", "2016-04-21 01:20:37.259571"], ["created_at", "2016-04-21 01:20:38.200896"], ["updated_at", "2016-04-21 01:20:38.200896"]]
+  [1m[35m (20.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 1164ms (ActiveRecord: 91.4ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2016-04-20 18:20:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1  [["user_id", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0[0m  [["user_id", 11]]
+  Rendered projects/_projects.html.erb (1.0ms)
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_navigation.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 61ms (Views: 57.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/11/edit" for 127.0.0.1 at 2016-04-20 18:20:47 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (5.5ms)
+  Rendered users/edit.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 79ms (Views: 74.1ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/users/11" for 127.0.0.1 at 2016-04-20 18:21:39 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1ArgxVmEWaLGmV93a/A3q6LXRdLHL95ks/7Z5Wk73dMw/TycPeD3OSBW+GpoYNMzIXFEQyZ8o6wHIbQJzU8M7g==", "user"=>{"username"=>"elizabeth", "full_name"=>"Olsen", "email"=>"olsen@testingapp.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f0699803580 @tempfile=#<Tempfile:/tmp/RackMultipart20160420-4997-11l5os5.jpg>, @original_filename="eo.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"eo.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Rejuvenate My Profile!", "id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160420-4997-1aqi92q.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' -auto-orient -resize "600x600>" '/tmp/c60102af9c6cad1f017321c05006024120160420-4997-1wx1vab'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' -auto-orient -resize "300x300>" '/tmp/c60102af9c6cad1f017321c05006024120160420-4997-1ys4ls7'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-1nbu58i.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+37" +repage '/tmp/c60102af9c6cad1f017321c05006024120160420-4997-1ywe6l2'
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('elizabeth') AND "users"."id" != 11) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('olsen@testingapp.com') AND "users"."id" != 11) LIMIT 1[0m
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160420-4997-f57tua.jpg'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "password_digest" = $1, "image_file_name" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "users"."id" = $6  [["password_digest", "$2a$10$Hfcqo7BhMAs3xDgH892cUOWPGOmXticLL3txrEt3dSN4kz3d9ghlW"], ["image_file_name", "eo.jpg"], ["image_file_size", 305857], ["image_updated_at", "2016-04-21 01:21:39.791192"], ["updated_at", "2016-04-21 01:21:40.008847"], ["id", 11]]
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/original/elizabeth-olsen1-550x338.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/large/elizabeth-olsen1-550x338.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/medium/elizabeth-olsen1-550x338.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/thumb/elizabeth-olsen1-550x338.jpg
+  [1m[36m (38.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 378ms (ActiveRecord: 40.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-04-20 18:21:40 -0700
+Processing by ProjectsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "projects"
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects" LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered projects/_projects.html.erb (6.2ms)
+  Rendered projects/index.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 74.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2016-04-20 18:21:43 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0  [["user_id", 11]]
+  Rendered projects/_projects.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 66.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/11/edit" for 127.0.0.1 at 2016-04-20 18:21:51 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered users/_form.html.erb (5.6ms)
+  Rendered users/edit.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 67.3ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/11" for 127.0.0.1 at 2016-04-20 18:22:34 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LGJUSy5ftr7AvEIqG42kAhoysIr8FBqQoXd5t6t38QjIlYgSSjsYJSZz5TcYHUCamZSxGx1HZ1gVqBRbDwMgNQ==", "user"=>{"username"=>"elizabeth", "full_name"=>"Olsen", "email"=>"olsen@testingapp.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f06998d4a40 @tempfile=#<Tempfile:/tmp/RackMultipart20160420-4997-180b86b.jpg>, @original_filename="eo.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"eo.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Rejuvenate My Profile!", "id"=>"11"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160420-4997-1tbex7s.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' -auto-orient -resize "600x600>" '/tmp/578c62a7a1a8f77e723baa2f27fbccd920160420-4997-1o2ezdc'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' -auto-orient -resize "300x300>" '/tmp/578c62a7a1a8f77e723baa2f27fbccd920160420-4997-ldhgbx'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160420-4997-g0ydv1.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+37" +repage '/tmp/578c62a7a1a8f77e723baa2f27fbccd920160420-4997-1j36zbq'
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('elizabeth') AND "users"."id" != 11) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('olsen@testingapp.com') AND "users"."id" != 11) LIMIT 1
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160420-4997-9791qt.jpg'
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "password_digest" = $1, "image_file_size" = $2, "image_updated_at" = $3, "image_file_name" = $4, "updated_at" = $5 WHERE "users"."id" = $6[0m  [["password_digest", "$2a$10$kM.En1aQYiho1zbGUh8Qr.1fsqsu.eoNLyx8u.QLQtPmkb2Yn1cNW"], ["image_file_size", 85823], ["image_updated_at", "2016-04-21 01:22:34.599675"], ["image_file_name", "eo.jpg"], ["updated_at", "2016-04-21 01:22:34.757901"], ["id", 11]]
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/original/eo.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/large/eo.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/medium/eo.jpg
+[paperclip] deleting /home/santosh/rails_projects/projects_blog/public/system/users/images/000/000/011/thumb/eo.jpg
+  [1m[35m (11.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 287ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-04-20 18:22:34 -0700
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered projects/_projects.html.erb (5.2ms)
+  Rendered projects/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 69ms (Views: 67.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2016-04-20 18:22:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1  [["user_id", 11]]
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0[0m  [["user_id", 11]]
+  Rendered projects/_projects.html.erb (1.2ms)
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 64ms (Views: 60.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-04-20 18:22:43 -0700
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT  "projects".* FROM "projects" LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered projects/_projects.html.erb (6.6ms)
+  Rendered projects/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 64ms (Views: 61.4ms | ActiveRecord: 1.8ms)
