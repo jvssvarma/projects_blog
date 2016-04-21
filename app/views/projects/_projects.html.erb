@@ -1,0 +1,30 @@
+<% obj.each do |project| %>
+  <div class='row'>
+    <div class='col-xs-8 col-xs-offset-2'>
+      <div class='well well-lg'>
+        <div class='project-title'>
+          <%= link_to project.title, project_path(project) %>
+        </div>
+        <div class='project-body'>
+          <%= truncate(project.description, length: 150) %>
+        </div>
+        <div class='project-link'>
+          <%= project.project_link %>
+          <div class='project-meta-details'>
+          <small><mark>Created by: <%= project.user.full_name if project.user%></mark>
+                 @<small><%= project.user.username if project.user%></small>&nbsp;&nbsp;&nbsp;<%= time_ago_in_words(project.created_at) %> ago,
+                 last updated: <%= time_ago_in_words(project.updated_at) %> ago</small>
+          </div>
+        </div>
+        <% if logged_in? && current_user == project.user %>
+          <div class='project-actions'>
+            <%= link_to "Edit", edit_project_path(project), class: 'btn btn-xs btn-primary' %>
+            <%= link_to "Delete", project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</table>

@@ -1,0 +1,14 @@
+<h1 align = "center">Projects Blog of <%= @user.full_name%></h1>
+<div class='center'>
+	<div class='round-image-50'>
+		<%= image_tag @user.image.url %>
+	</div>
+</div>
+<h4 align="center">Work of <%= @user.username %></h4>
+<div align="center">
+	<%= will_paginate @user_projects %>
+</div>
+<%= render 'projects/projects', obj: @user_projects %>
+<div align="center">
+	<%= will_paginate @user_projects %>
+</div>
