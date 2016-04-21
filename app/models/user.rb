@@ -1,5 +1,5 @@
 class User <ActiveRecord::Base
-  has_many :projects
+  has_many :projects, dependent: :destroy
   before_save { self.username = username.downcase }
   before_save { self.email = email.downcase }
   validates :username, presence: true, uniqueness: { case_sensitive: false },

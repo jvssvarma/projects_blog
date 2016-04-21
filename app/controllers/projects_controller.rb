@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
    end
 
    def require_same_user
-    if current_user != @project.user
+    if current_user != @project.user and !current_user.admin?
       flash[:danger] ="You cannot perform this action"
       redirect_to root_path
     end
