@@ -93,6 +93,20 @@ $navbar-default-bg: black;
   padding-left: 0;
 }
 
+.categories_listing {
+  list-style: none;
+  padding-left: 0;
+  float: left;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+}
+
+.category-title {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
 footer {
   margin-top: 45px;
   padding-top: 1px;
