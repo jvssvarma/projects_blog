@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 	before_action :require_admin, except: [:index, :show]
 
 	def index
-		@categories = Category.paginate(page: params[:page], per_page: 5)
+		@categories = Category.all
 	end
 
 	def new
@@ -21,7 +21,8 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-
+		@category = Category.find(params[:id])
+		@category_projects = @category.projects.paginate(page: params[:page], per_page: 5)
 	end
 
 	private

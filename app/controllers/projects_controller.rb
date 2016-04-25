@@ -63,7 +63,7 @@ class ProjectsController < ApplicationController
    end
 
    def project_params
-     params.require(:project).permit(:title, :description, :project_link)
+     params.require(:project).permit(:title, :description, :project_link, category_ids: [])
    end
 
    def require_same_user

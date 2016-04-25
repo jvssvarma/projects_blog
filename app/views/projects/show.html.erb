@@ -26,6 +26,9 @@
   <h4 class='center'><strong> Project Link:</strong></h4>
   <hr>
   <%= simple_format(@project.project_link) %>
+  <% if @project.categories.any? %>
+    <p> Categories: <%= render @project.categories %></p>
+  <% end %>
   <div class='project-actions'>
     <% if logged_in? && (current_user = @project.user || current_user.admin?) %>
       <%= link_to "Edit", edit_project_path(@project), class: 'btn btn-xs btn-primary' %>

@@ -103,8 +103,36 @@ $navbar-default-bg: black;
 }
 
 .category-title {
+  list-style: none;
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 3.5em;
+}
+
+.c1, .c2, .c3 {
+  width: 33%;
+}
+
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.input_checkbox input {
+    width: auto !important;
+}
+
+.text-box {
+  width: 320px;
+  padding: 10px;
+  border: 0px, solid gray;
+  margin: 0;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
 }
 
 footer {
