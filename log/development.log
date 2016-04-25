@@ -15681,3 +15681,1028 @@ Processing by ProjectsController#index as HTML
   Rendered layouts/_messages.html.erb (0.1ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 103ms (Views: 98.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2016-04-25 00:23:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/categories
+Filter chain halted as :require_admin rendered or redirected
+Completed 302 Found in 60ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:23:59 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (11.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 527ms (Views: 518.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at 2016-04-25 00:24:03 -0700
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/categories
+Filter chain halted as :require_admin rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:24:03 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-04-25 00:24:18 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aDVHyqPuw5pVJgj6+QW7b0GGKSIUilIVgEIusdpw8XWmF9CV3XAE2mq3YTiVmY0oh4e04F3ETreW65mw4jc8uA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-25 00:24:18 -0700
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (0.7ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 78ms (Views: 76.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2016-04-25 00:24:20 -0700
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (1.9ms)
+  Rendered users/_form.html.erb (28.0ms)
+  Rendered users/new.html.erb within layouts/application (29.1ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_navigation.html.erb (5.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 116ms (Views: 114.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-04-25 00:24:21 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 99ms (Views: 97.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-04-25 00:24:28 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"otBgs9pn9aTRVGP39g7GTHB7lmuLHfV/ei5Oa4dgwdVs8vfspPky5O7FCjWakvALtnoLqcJT6d1sh/lqvycMGA==", "session"=>{"email"=>"olsen@testingapp.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "olsen@testingapp.com"]]
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 120ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2016-04-25 00:24:28 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0  [["user_id", 11]]
+  Rendered projects/_projects.html.erb (3.5ms)
+  Rendered users/show.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 112ms (Views: 83.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:24:33 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2016-04-25 00:24:37 -0700
+Processing by CategoriesController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered shared/_errors.html.erb (0.8ms)
+  Rendered categories/new.html.erb within layouts/application (6.0ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_navigation.html.erb (4.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 89ms (Views: 84.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at 2016-04-25 00:24:39 -0700
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+ActionView::MissingTemplate (Missing template categories/edit, application/edit with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/santosh/rails_projects/projects_blog/app/views"
+):
+  actionview (4.2.5) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.5) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.5) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.5) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.5) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.5) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (40.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.6ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (48.1ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered categories/_form.html.erb (4.2ms)
+  Rendered categories/edit.html.erb within layouts/application (5.5ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 96ms (Views: 91.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:15 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-04-25 00:27:16 -0700
+
+
+Started PATCH "/categories/1" for 127.0.0.1 at 2016-04-25 00:27:23 -0700
+Processing by CategoriesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RES5wdDxZxSK09B93g7BLhqSNwOYQTmwJj6DmP3lHDyKZi6erm+gVLVCub+ykvdp3JOqwdEPJRIwlzSZxaLR8Q==", "category"=>{"name"=>"Film & Video"}, "commit"=>"Update Category", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.7ms)[0m  SELECT  1 AS one FROM "categories" WHERE ("categories"."name" = 'Film & Video' AND "categories"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "categories" SET "name" = $1, "updated_at" = $2 WHERE "categories"."id" = $3[0m  [["name", "Film & Video"], ["updated_at", "2016-04-25 07:27:23.758633"], ["id", 1]]
+  [1m[35m (33.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 56ms (ActiveRecord: 35.6ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:27:23 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1  [["category_id", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0[0m  [["category_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (1.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.7ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 22]]
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.3ms)
+  Rendered projects/_projects.html.erb (62.6ms)
+  Rendered categories/show.html.erb within layouts/application (72.2ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 174ms (Views: 148.9ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:27:33 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1  [["category_id", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0[0m  [["category_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 22]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.3ms)
+  Rendered projects/_projects.html.erb (38.5ms)
+  Rendered categories/show.html.erb within layouts/application (44.5ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 117ms (Views: 107.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:29:58 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1  [["category_id", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0[0m  [["category_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 22]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered projects/_projects.html.erb (36.4ms)
+  Rendered categories/show.html.erb within layouts/application (43.4ms)
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (7.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 114.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-04-25 00:29:59 -0700
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:30:52 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1  [["category_id", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0[0m  [["category_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 22]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered projects/_projects.html.erb (66.9ms)
+  Rendered categories/show.html.erb within layouts/application (74.2ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 188ms (Views: 143.5ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-04-25 00:30:52 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-04-25 00:30:53 -0700
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:30:57 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered categories/index.html.erb within layouts/application (3.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 72.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2016-04-25 00:33:39 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 2]]
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 21]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered projects/_projects.html.erb (10.1ms)
+  Rendered categories/show.html.erb within layouts/application (14.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 102ms (Views: 96.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:34:05 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 19]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 15]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 21]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 22]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered projects/_projects.html.erb (39.2ms)
+  Rendered categories/show.html.erb within layouts/application (46.2ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 121ms (Views: 110.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2016-04-25 00:34:11 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 2]]
+  [1m[35mProject Load (0.5ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 21]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered projects/_projects.html.erb (11.0ms)
+  Rendered categories/show.html.erb within layouts/application (14.2ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 85ms (Views: 78.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered categories/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-04-25 00:35:15 -0700
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2016-04-25 00:35:16 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 2]]
+  [1m[35mProject Load (0.5ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 21]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.6ms)
+  Rendered projects/_projects.html.erb (8.9ms)
+  Rendered categories/show.html.erb within layouts/application (14.7ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 68ms (Views: 62.6ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-04-25 00:35:32 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O/Gwxqhvt1K1Fu1MBAEgkPSD9jwzsoYbv0iGz1OD9fj10yeZ1vFwEoqHhI5onRbXMoJr/nr8mrmp4THOa8Q4NQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-25 00:35:32 -0700
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (0.3ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 84ms (Views: 82.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-04-25 00:35:35 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 78ms (Views: 76.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-04-25 00:35:41 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aY9YOvDoQB1lHauxutiHsl2X4dywvGlIc5WbVxlRVMGnrc9ljnaHXVqMwnPWRLH1m5Z8HvnydeplPCxWIRaZDA==", "session"=>{"email"=>"jdoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jdoe@gmail.com"]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 125ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-04-25 00:35:41 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 LIMIT 5 OFFSET 0  [["user_id", 3]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 13]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 14]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.3ms)
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 16]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 17]]
+  Rendered projects/_projects.html.erb (20.5ms)
+  Rendered users/show.html.erb within layouts/application (27.7ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 99.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/categories/8" for 127.0.0.1 at 2016-04-25 00:35:45 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 8]]
+  [1m[35mProject Load (0.3ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 8]]
+  Rendered projects/_projects.html.erb (1.4ms)
+  Rendered categories/show.html.erb within layouts/application (6.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 84.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/categories/8" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1  [["category_id", 8]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0[0m  [["category_id", 8]]
+  Rendered projects/_projects.html.erb (1.7ms)
+  Rendered categories/show.html.erb within layouts/application (8.7ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 83.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:31 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-04-25 00:36:32 -0700
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2016-04-25 00:36:36 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" INNER JOIN "project_categories" ON "projects"."id" = "project_categories"."project_id" WHERE "project_categories"."category_id" = $1 LIMIT 5 OFFSET 0  [["category_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 19]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Exists (1.5ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 15]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 15]]
+  Rendered categories/_category.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 22]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 22]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered projects/_projects.html.erb (34.8ms)
+  Rendered categories/show.html.erb within layouts/application (43.4ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 119ms (Views: 108.7ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/categories/1/ediy" for 127.0.0.1 at 2016-04-25 00:36:43 -0700
+
+ActionController::RoutingError (No route matches [GET] "/categories/1/ediy"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/santosh/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.7ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (248.8ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (24.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.4ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at 2016-04-25 00:36:48 -0700
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Redirected to http://localhost:3000/categories
+Filter chain halted as :require_admin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2016-04-25 00:36:48 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered categories/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 86ms (Views: 84.3ms | ActiveRecord: 1.0ms)
