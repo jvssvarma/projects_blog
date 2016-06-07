@@ -20234,3 +20234,716 @@ Processing by ProjectsController#index as HTML
   Rendered layouts/_messages.html.erb (0.1ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 145ms (Views: 133.6ms | ActiveRecord: 9.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddEmailConfirmColumnToUsers (20160607002919)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "email_confirmed" boolean[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "confirm_token" character varying
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160607002919"]]
+  [1m[35m (32.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'project_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddEmailConfirmColumnToUsers (20160607002919)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1021.0ms)[0m  ALTER TABLE "users" DROP "confirm_token"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" DROP "email_confirmed"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1  [["version", "20160607002919"]]
+  [1m[36m (25.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'project_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddEmailConfirmColumnToUsers (20160607002919)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (172.0ms)[0m  [1mALTER TABLE "users" ADD "email_confirmed" boolean DEFAULT 'f'[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "confirm_token" character varying
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160607002919"]]
+  [1m[35m (26.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'project_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'project_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'project_categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-06 18:12:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#home as HTML
+  Rendered projects/home.html.erb within layouts/application (1.4ms)
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (14.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 433ms (Views: 420.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-06-06 18:12:41 -0700
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects" LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.8ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 16]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 16], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 16], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.6ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 17]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 17], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 17], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 18]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 18], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 18], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 19]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.8ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 19], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 19], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.4ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 21], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 21], ["votable_type", "Project"], ["vote_flag", "f"]]
+  Rendered projects/_projects.html.erb (119.8ms)
+  Rendered projects/index.html.erb within layouts/application (142.0ms)
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (5.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 239ms (Views: 206.8ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2016-06-06 18:12:43 -0700
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (2.6ms)
+  Rendered users/_form.html.erb (37.3ms)
+  Rendered users/new.html.erb within layouts/application (46.3ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 146ms (Views: 143.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-06-06 18:13:18 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0ZQM0sSsEO+eCunKdmHH22rN9blAWBHxVnSwthHAcrQ8SYaFsHBAsTQh8/Tad5kqAiZHYq+8PLZ2DqX10EtUA==", "user"=>{"username"=>"codevarma", "full_name"=>"code varma", "email"=>"varma.santosh@outlook.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f37b22182c0 @tempfile=#<Tempfile:/tmp/RackMultipart20160606-7002-15zanu5.jpg>, @original_filename="dp.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"dp.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Let's get started!"}
+Command :: file -b --mime '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1uv815g.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' -auto-orient -resize "600x600>" '/tmp/f8be0720a4ec85cf0a777561ce4a678f20160606-7002-1y185hx'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' -auto-orient -resize "300x300>" '/tmp/f8be0720a4ec85cf0a777561ce4a678f20160606-7002-aembqn'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1ap5aby.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/tmp/f8be0720a4ec85cf0a777561ce4a678f20160606-7002-1lu3unq'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('codevarma') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('varma.santosh@outlook.com') LIMIT 1[0m
+Command :: file -b --mime '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1xmh6hz.jpg'
+  [1m[35mSQL (15.4ms)[0m  INSERT INTO "users" ("username", "full_name", "email", "password_digest", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at", "confirm_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["username", "codevarma"], ["full_name", "code varma"], ["email", "varma.santosh@outlook.com"], ["password_digest", "$2a$10$hGzp/pfHAvQI.1NnGi2jm.6hbL5WZewanfuEzKgd27QfQ7kGLlyni"], ["image_file_name", "dp.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 27061], ["image_updated_at", "2016-06-07 01:13:18.323466"], ["created_at", "2016-06-07 01:13:19.542641"], ["updated_at", "2016-06-07 01:13:19.542641"], ["confirm_token", "469Hgt0bGHQUfV5pKVrHLw"]]
+  [1m[36m (41.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/santosh/rails_projects/projects_blog/app/controllers/users_controller.rb:16)
+
+UserMailer#registration_confirmation: processed outbound mail in 7.1ms
+Completed 500 Internal Server Error in 1414ms (ActiveRecord: 57.9ms)
+
+ActionView::MissingTemplate (Missing template user_mailer/registration_confirmation with "mailer". Searched in:
+  * "user_mailer"
+):
+  app/mailers/user_mailer.rb:6:in `registration_confirmation'
+  app/controllers/users_controller.rb:16:in `create'
+
+
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.8ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (44.8ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.1ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-06-06 18:17:10 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0ZQM0sSsEO+eCunKdmHH22rN9blAWBHxVnSwthHAcrQ8SYaFsHBAsTQh8/Tad5kqAiZHYq+8PLZ2DqX10EtUA==", "user"=>{"username"=>"codevarma", "full_name"=>"code varma", "email"=>"varma.santosh@outlook.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f37b25bef78 @tempfile=#<Tempfile:/tmp/RackMultipart20160606-7002-1bdg6xg.jpg>, @original_filename="dp.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"dp.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Let's get started!"}
+Command :: file -b --mime '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-r8z2g7.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' -auto-orient -resize "600x600>" '/tmp/5afe6e1739d23f834836d30722fc730720160606-7002-209rvx'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' -auto-orient -resize "300x300>" '/tmp/5afe6e1739d23f834836d30722fc730720160606-7002-x3oejw'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]'
+Command :: convert '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-1lej5db.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+0" +repage '/tmp/5afe6e1739d23f834836d30722fc730720160606-7002-k0zz3l'
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('codevarma') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('varma.santosh@outlook.com') LIMIT 1
+Command :: file -b --mime '/tmp/95687afb5d9a2a9fa39038f991640b0c20160606-7002-m0iv4i.jpg'
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered shared/_errors.html.erb (1.6ms)
+  Rendered users/_form.html.erb (6.2ms)
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 324ms (Views: 56.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-06 18:17:11 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2016-06-06 18:17:44 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TLuMuB22ZkzulZ7i7dZIJ7Yyl/Pm85+52qbn2Rzmuv77DPqRQGUXDZQ9MooXZhFcc5E5OIlMDwzGJw+ME+CWZA==", "user"=>{"username"=>"codetester", "full_name"=>"code varma", "email"=>"sunnytheking09@gmail.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x00000004c23ef0 @tempfile=#<Tempfile:/tmp/RackMultipart20160606-7002-1j4o0xh.jpg>, @original_filename="eo.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"eo.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Let's get started!"}
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160606-7002-1r94s7k.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' -auto-orient -resize "600x600>" '/tmp/f6be59fedf3f65e18808b6d6cb09551920160606-7002-gcb5uv'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' -auto-orient -resize "300x300>" '/tmp/f6be59fedf3f65e18808b6d6cb09551920160606-7002-1lglyjq'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-1noywbn.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+37" +repage '/tmp/f6be59fedf3f65e18808b6d6cb09551920160606-7002-1wm2dwh'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('codetester') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sunnytheking09@gmail.com') LIMIT 1[0m
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160606-7002-1p4aqem.jpg'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "full_name", "email", "password_digest", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at", "confirm_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["username", "codetester"], ["full_name", "code varma"], ["email", "sunnytheking09@gmail.com"], ["password_digest", "$2a$10$aYNbT2Xc7oErQyVE.Wi53.ZE2KSf4dST5gn7H50hDTgIKJZJYK/12"], ["image_file_name", "eo.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 85823], ["image_updated_at", "2016-06-07 01:17:44.182492"], ["created_at", "2016-06-07 01:17:44.388471"], ["updated_at", "2016-06-07 01:17:44.388471"], ["confirm_token", "B9QTkarCLr2kDIn-OnjDLA"]]
+  [1m[36m (26.5ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/santosh/rails_projects/projects_blog/app/controllers/users_controller.rb:16)
+
+UserMailer#registration_confirmation: processed outbound mail in 6.4ms
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 27.8ms)
+
+ActionView::MissingTemplate (Missing template user_mailer/registration_confirmation with "mailer". Searched in:
+  * "user_mailer"
+):
+  app/mailers/user_mailer.rb:6:in `registration_confirmation'
+  app/controllers/users_controller.rb:16:in `create'
+
+
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (21.9ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/santosh/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TLuMuB22ZkzulZ7i7dZIJ7Yyl/Pm85+52qbn2Rzmuv77DPqRQGUXDZQ9MooXZhFcc5E5OIlMDwzGJw+ME+CWZA==", "user"=>{"username"=>"codetester", "full_name"=>"code varma", "email"=>"sunnytheking09@gmail.com", "password"=>"[FILTERED]", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f37b170c098 @tempfile=#<Tempfile:/tmp/RackMultipart20160606-7002-1qj8cpg.jpg>, @original_filename="eo.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"eo.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Let's get started!"}
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160606-7002-5jabtc.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' -auto-orient -resize "600x600>" '/tmp/89f575fe4cd977c07db86bfeab68319920160606-7002-s0e84o'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' -auto-orient -resize "300x300>" '/tmp/89f575fe4cd977c07db86bfeab68319920160606-7002-833yvn'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]'
+Command :: convert '/tmp/504332760740d229cd79cadd8758894120160606-7002-rk5c1j.jpg[0]' -auto-orient -resize "150x" -crop "150x150+0+37" +repage '/tmp/89f575fe4cd977c07db86bfeab68319920160606-7002-1k5n47h'
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('codetester') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sunnytheking09@gmail.com') LIMIT 1
+Command :: file -b --mime '/tmp/504332760740d229cd79cadd8758894120160606-7002-1fzcjgr.jpg'
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered shared/_errors.html.erb (1.0ms)
+  Rendered users/_form.html.erb (3.7ms)
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (2.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 294ms (Views: 58.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/custom.self-2903904d7f9c92f0cb05f2e3618f71d59980a3e8883cb8c6b53bf5547c5c80d0.css?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-06 18:19:27 -0700
+
+
+Started GET "/projects" for 127.0.0.1 at 2016-06-06 18:19:46 -0700
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.5ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 16]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 16], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 16], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 17]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 17], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 17], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 18]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 18], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 18], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1  [["project_id", 19]]
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1[0m  [["project_id", 19]]
+  Rendered categories/_category.html.erb (0.8ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 19], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 19], ["votable_type", "Project"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1 LIMIT 1[0m  [["project_id", 21]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "project_categories" ON "categories"."id" = "project_categories"."category_id" WHERE "project_categories"."project_id" = $1  [["project_id", 21]]
+  Rendered categories/_category.html.erb (0.4ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 21], ["votable_type", "Project"], ["vote_flag", "t"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3 AND "votes"."vote_scope" IS NULL  [["votable_id", 21], ["votable_type", "Project"], ["vote_flag", "f"]]
+  Rendered projects/_projects.html.erb (41.4ms)
+  Rendered projects/index.html.erb within layouts/application (45.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 92ms (Views: 83.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2016-06-06 18:19:46 -0700
+
+
+Started GET "/login" for 127.0.0.1 at 2016-06-06 18:19:50 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 88.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-06-06 18:20:02 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"575uV1G4aHSFzo1gZd8/WdVi/TMmw7Y7oZFg9g+wF+FQCRh+DGsZNf9mIQifb2YiEMFT+El8Jo69EIijALY7ew==", "session"=>{"email"=>"jdoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jdoe@gmail.com"]]
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 71.3ms | ActiveRecord: 1.1ms)

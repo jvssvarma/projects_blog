@@ -13,10 +13,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to Projects Blog #{@user.username}@#{@user.full_name}"
+      flash[:success] = "Please confirm your email address #{@user.username} to continue"
       redirect_to user_path(@user)
     else
+      flash[:error] = "Ooopss! Something went wrong!"
       render 'new'
     end
   end

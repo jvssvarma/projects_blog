@@ -1,4 +1,6 @@
 class User <ActiveRecord::Base
+  before_create :confirmation_token
+
   has_many :projects, dependent: :destroy
   before_save { self.username = username.downcase }
   before_save { self.email = email.downcase }
@@ -14,4 +16,18 @@ class User <ActiveRecord::Base
   has_secure_password
   has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+
+  private
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
+  end
 end
