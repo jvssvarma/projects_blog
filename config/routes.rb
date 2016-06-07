@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   get 'about', to: 'projects#about'
 
-  resources :projects
+  resources :projects do
+    member do
+      put "like", to: "projects#upvote"
+      put "dislike", to: "projects#downvote"
+    end
+  end
+
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 

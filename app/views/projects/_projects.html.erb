@@ -19,12 +19,20 @@
         <% if project.categories.any? %>
           <p> Categories: <%= render project.categories %></p>
         <% end %>
-        <% if logged_in? && (current_user == project.user || current_user.admin?) %>
-          <div class='project-actions'>
-            <%= link_to "Edit", edit_project_path(project), class: 'btn btn-xs btn-primary' %>
-            <%= link_to "Delete", project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger' %>
-          </div>
-        <% end %>
+        <div class='project-actions'>
+          <% if logged_in? && (current_user == project.user || current_user.admin?) %>
+              <%= link_to "Edit", edit_project_path(project), class: 'btn btn-xs btn-primary' %>
+              <%= link_to "Delete", project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger' %>
+          <% end %>
+          <%= link_to like_project_path(project), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+              <%= project.get_upvotes.size %>
+          <% end %>
+          <%= link_to dislike_project_path(project), method: :put, class: "btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-thumbs-down">
+              <%= project.get_downvotes.size %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
